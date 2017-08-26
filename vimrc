@@ -36,8 +36,6 @@ colorscheme molokai
 
 " ==== Ruby ====
 Bundle 'vim-ruby/vim-ruby'  
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " ==== Surroundings ====
 Bundle 'tpope/vim-surround'
@@ -60,7 +58,9 @@ Bundle 'scrooloose/nerdtree'
 " Dispatching the test runner to tmux pane
 Bundle 'tpope/vim-dispatch'
 
-
+" ==== Airline, Status/Tabline for Vim ====
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Add Plugins before the following line
 call vundle#end()
@@ -79,8 +79,8 @@ set autoindent 			" Auto indention should be on
 
 let mapleader=","               "Change mapleader to Comma
 
-" enable extended % matching
-runtime macros/matchit.vim
+" enable extended % matching, disabled since it caused vim to lag
+" runtime macros/matchit.vim
 
 " Additional configurations for Nerd Tree
 autocmd StdinReadPre * let s:std_in=1
@@ -119,3 +119,6 @@ set cursorline
 
 " interact every copy and paste with system clipboard
 set clipboard=unnamed
+
+" Dark theme for Airline - Solarized theme
+let g:airline_theme='simple'
